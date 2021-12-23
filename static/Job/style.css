@@ -1,0 +1,103 @@
+label {
+    display: flex;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.cycle-button {
+    width:50%;
+    height:100%;
+    font-size:25px;
+}
+
+.cycle-button-select {
+    width:50%;
+    height:100%;
+    background-color:#40508D;
+    font-size:25px;
+    color:#FFFFFF;
+}
+.cycle {
+    width:50%;
+    height:100%;
+    margin-top:2%;
+    padding-top:1%;
+    padding-bottom:1%;
+}
+
+.submit-button {
+    width:25%;
+    height:100%;
+    font-size:25px;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    margin-bottom: 5%;
+}
+
+.push-right {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.flex-container {
+  /* We first create a flex layout context */
+  display: flex;
+
+  /* Then we define the flow direction
+     and if we allow the items to wrap
+   * Remember this is the same as:
+   * flex-direction: row;
+   * flex-wrap: wrap;
+   */
+
+  /* Then we define how is distributed the remaining space */
+  justify-content: space-around;
+  flex-flow: row wrap;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+}
+
+hr {
+    border:none;
+    border-top:1px solid #000000;
+    color:#fff;
+    background-color:#fff;
+    height:1px;
+    width:100%;
+}
+
+.flex-container-row {
+  display: flex;
+  justify-content: space-around;
+  flex-flow: row wrap;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+}
+
+.item {
+    margin: 2%;
+    margin-top: 3%;
+}
+
+textarea {
+    width:75%;
+    height: 200px;
+}
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-center {
+    display:flex;
+    justify-content: center;
+}

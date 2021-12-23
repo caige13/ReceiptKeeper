@@ -1,0 +1,105 @@
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    flex: 1 1 0px;
+    background-position: center;
+    background-size: cover;
+}
+
+.errorbox {
+    font-family: Inter;
+    margin-left: 12%;
+    margin-right: 20%;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1vw;
+    line-height: 2vw;
+    color: #000000;
+    text-align: center;
+    padding: .5vh 1vh .5vh 1vh;
+    background: #FF0000;
+}
+
+.logo-text {
+    margin: 0;
+    margin-top: 100px;
+    margin-right: 100px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 75px;
+    line-height: 6vw;
+    text-align: center;
+
+    color: #E4701D;
+}
+
+.error-msg{
+    margin: 0.75vh auto 0.75vh auto;
+}
+
+.center-box .right,
+.center-box .left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.center-box .left {
+    margin: 3vh 2vw 3vh 5vw;
+    align-items: center;
+}
+
+.center-box .right {
+    margin: 3vh 5vw 3vh 2vw;
+}
+
+.center-box .right label {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 2vw;
+    line-height: 3vw;
+}
+
+.center-box .right input[type=text],
+.center-box .right input[type=password] {
+    font-size: 2vw;
+    line-height: 3vw;
+    padding-left: 1vw;
+    margin-bottom: 1vh;
+    background: #D0BFBF;
+    border-radius: 1.5vw;
+}
+
+.center-box .right input[type=submit], .bottom-button {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 2vw;
+
+    padding-top: 1.25vw;
+    padding-bottom: 1.25vw;
+    margin-bottom: 0.25vh;
+
+    text-align: center;
+    color: #FFFFFF;
+    background: #009C3B;
+    line-height: 2vw;
+    margin-top: .5vh;
+
+    border-radius: 1.5vw;
+}
+
+.bottom-button {
+    background: #6666FF;
+    text-decoration-line: none;
+}
+
+input {
+    border-style: solid;
+}

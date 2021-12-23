@@ -1,0 +1,355 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<head>
+    {% load static %}
+<link href="{% static 'tinymce/css/prism.css' %}" rel="stylesheet">
+</head>
+{% block content %}
+
+    <link rel="stylesheet" href="{% static 'Job/style.css' %}">
+    <div class="container">
+        <div class="row">
+            <div class="flex-container-row">
+                {% if fill_out %}
+                    <form class="cycle flex-center" method="get">
+                    {% csrf_token %}
+                        <input type="submit" class="btn cycle-button-select" value="Fill Out" name="fill_out">
+                    </form>
+                    <form class="cycle flex-center" method="get">
+                    {% csrf_token %}
+                        <input type="submit" class="btn cycle-button" value="Upload" name="upload_file">
+                    </form>
+                {% else %}
+                    <form class="cycle flex-center" method="get">
+                    {% csrf_token %}
+                        <input type="submit" class="btn cycle-button" value="Fill Out" name="fill_out">
+                    </form>
+                    <form class="cycle flex-center" method="get">
+                    {% csrf_token %}
+                        <input type="submit" class="btn cycle-button-select" value="Upload" name="upload_file">
+                    </form>
+                {% endif %}
+            </div>
+        </div>
+        {% if fill_out %}
+            <form method="post">
+            {% csrf_token %}
+                <div class="row">
+                    <hr>
+                    <h2 class="flex-container">DATES</h2>
+                    <div class="flex-container-row">
+                        <div class="item">
+                            <label for="start_date">Start Date: </label>
+                            <input type="date" name="start_date" required/>
+                        </div>
+                        <div class="item">
+                            <label for="end_date">End Date: </label>
+                            <input type="date" name="end_date"/>
+                        </div>
+                        <div class="item">
+                            <label for="receipt_date">Receipt Date: </label>
+                            <input type="date" name="receipt_date"/>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+                <div class="row">
+                    <h2 class="flex-container">GENERAL</h2>
+                    <div class="flex-container-row">
+                        <div class="item">
+                            <label for="invoice">Invoice #: </label>
+                            <input type="number" name="invoice"/>
+                        </div>
+                        <div class="item">
+                            <label for="distance">Distance: </label>
+                            <input type="number" name="distance"/>
+                            <span>mi</span>
+                        </div>
+                        <div class="item">
+                            <label for="revenue">Revenue: </label>
+                            <span>$</span>
+                            <input type="number" name="revenue"/>
+                        </div>
+                        <div class="item">
+                            <label for="tax">Tax: </label>
+                            <span>$</span>
+                            <input type="number" name="tax"/>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+                <div class="row">
+                    <h2 class="flex-container">EXPENSES</h2>
+                    <div class="flex-container-row">
+                        <div class="item">
+                            <label for="hotel">Hotel Cost: </label>
+                            <span>$</span>
+                            <input type="number" name="hotel"/>
+                        </div>
+                        <div class="item">
+                            <label for="food">Food Cost: </label>
+                            <span>$</span>
+                            <input type="number" name="food"/>
+                        </div>
+                        <div class="item">
+                            <label for="gas">Gas Cost: </label>
+                            <span>$</span>
+                            <input type="number" name="gas"/>
+                        </div>
+                        <div class="item">
+                            <label for="other">Other Expenses: </label>
+                            <span>$</span>
+                            <input type="number" name="other"/>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+                <div class="row">
+                    <h2 class="flex-container">START LOCATION</h2>
+                    <div class="flex-container-row">
+                        <div class="item">
+                            <label for="start_street">Address: </label>
+                            <input type="text" for="start_street" />
+                        </div>
+                        <div class="item">
+                            <label for="start_city">City: </label>
+                            <input type="text" name="start_city"/>
+                        </div>
+                        <div class="item">
+                            <label for="start_state">State: </label>
+                            <select name="start_state">
+                                <option value="AL">Alabama</option>
+                                <option value="AK">Alaska</option>
+                                <option value="AZ">Arizona</option>
+                                <option value="AR">Arkansas</option>
+                                <option value="CA">California</option>
+                                <option value="CO">Colorado</option>
+                                <option value="CT">Connecticut</option>
+                                <option value="DE">Delaware</option>
+                                <option value="DC">District Of Columbia</option>
+                                <option value="FL">Florida</option>
+                                <option value="GA">Georgia</option>
+                                <option value="HI">Hawaii</option>
+                                <option value="ID">Idaho</option>
+                                <option value="IL">Illinois</option>
+                                <option value="IN">Indiana</option>
+                                <option value="IA">Iowa</option>
+                                <option value="KS">Kansas</option>
+                                <option value="KY">Kentucky</option>
+                                <option value="LA">Louisiana</option>
+                                <option value="ME">Maine</option>
+                                <option value="MD">Maryland</option>
+                                <option value="MA">Massachusetts</option>
+                                <option value="MI">Michigan</option>
+                                <option value="MN">Minnesota</option>
+                                <option value="MS">Mississippi</option>
+                                <option value="MO">Missouri</option>
+                                <option value="MT">Montana</option>
+                                <option value="NE">Nebraska</option>
+                                <option value="NV">Nevada</option>
+                                <option value="NH">New Hampshire</option>
+                                <option value="NJ">New Jersey</option>
+                                <option value="NM">New Mexico</option>
+                                <option value="NY">New York</option>
+                                <option value="NC">North Carolina</option>
+                                <option value="ND">North Dakota</option>
+                                <option value="OH">Ohio</option>
+                                <option value="OK">Oklahoma</option>
+                                <option value="OR">Oregon</option>
+                                <option value="PA">Pennsylvania</option>
+                                <option value="RI">Rhode Island</option>
+                                <option value="SC">South Carolina</option>
+                                <option value="SD">South Dakota</option>
+                                <option value="TN">Tennessee</option>
+                                <option value="TX">Texas</option>
+                                <option value="UT">Utah</option>
+                                <option value="VT">Vermont</option>
+                                <option value="VA">Virginia</option>
+                                <option value="WA">Washington</option>
+                                <option value="WV">West Virginia</option>
+                                <option value="WI">Wisconsin</option>
+                                <option value="WY">Wyoming</option>
+                            </select>
+                        </div>
+                        <div class="item">
+                            <label for="start_zip">Zipcode: </label>
+                            <input type="text" name="start_zip"/>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+                <div class="row">
+                    <h2 class="flex-container">PICK UP LOCATION</h2>
+                    <div class="flex-container-row">
+                        <div class="item">
+                            <label for="pickup_street">Address: </label>
+                            <input type="text" for="pickup_street" />
+                        </div>
+                        <div class="item">
+                            <label for="pickup_city">City: </label>
+                            <input type="text" name="pickup_city"/>
+                        </div>
+                        <div class="item">
+                            <label for="pickup_state">State: </label>
+                            <select name="pickup_state">
+                                <option value="AL">Alabama</option>
+                                <option value="AK">Alaska</option>
+                                <option value="AZ">Arizona</option>
+                                <option value="AR">Arkansas</option>
+                                <option value="CA">California</option>
+                                <option value="CO">Colorado</option>
+                                <option value="CT">Connecticut</option>
+                                <option value="DE">Delaware</option>
+                                <option value="DC">District Of Columbia</option>
+                                <option value="FL">Florida</option>
+                                <option value="GA">Georgia</option>
+                                <option value="HI">Hawaii</option>
+                                <option value="ID">Idaho</option>
+                                <option value="IL">Illinois</option>
+                                <option value="IN">Indiana</option>
+                                <option value="IA">Iowa</option>
+                                <option value="KS">Kansas</option>
+                                <option value="KY">Kentucky</option>
+                                <option value="LA">Louisiana</option>
+                                <option value="ME">Maine</option>
+                                <option value="MD">Maryland</option>
+                                <option value="MA">Massachusetts</option>
+                                <option value="MI">Michigan</option>
+                                <option value="MN">Minnesota</option>
+                                <option value="MS">Mississippi</option>
+                                <option value="MO">Missouri</option>
+                                <option value="MT">Montana</option>
+                                <option value="NE">Nebraska</option>
+                                <option value="NV">Nevada</option>
+                                <option value="NH">New Hampshire</option>
+                                <option value="NJ">New Jersey</option>
+                                <option value="NM">New Mexico</option>
+                                <option value="NY">New York</option>
+                                <option value="NC">North Carolina</option>
+                                <option value="ND">North Dakota</option>
+                                <option value="OH">Ohio</option>
+                                <option value="OK">Oklahoma</option>
+                                <option value="OR">Oregon</option>
+                                <option value="PA">Pennsylvania</option>
+                                <option value="RI">Rhode Island</option>
+                                <option value="SC">South Carolina</option>
+                                <option value="SD">South Dakota</option>
+                                <option value="TN">Tennessee</option>
+                                <option value="TX">Texas</option>
+                                <option value="UT">Utah</option>
+                                <option value="VT">Vermont</option>
+                                <option value="VA">Virginia</option>
+                                <option value="WA">Washington</option>
+                                <option value="WV">West Virginia</option>
+                                <option value="WI">Wisconsin</option>
+                                <option value="WY">Wyoming</option>
+                            </select>
+                        </div>
+                        <div class="item">
+                            <label for="pickup_zip">Zipcode: </label>
+                            <input type="text" name="pickup_zip"/>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+                <div class="row">
+                    <h2 class="flex-container-row">DROP OFF LOCATION</h2>
+                    <div class="flex-container-row">
+                        <div class="item">
+                            <label for="dropoff_street">Address: </label>
+                            <input type="text" name="dropoff_street" />
+                        </div>
+                        <div class="item">
+                            <label for="dropoff_city">City: </label>
+                            <input type="text" name="dropoff_city"/>
+                        </div>
+                        <div class="item">
+                            <label for="dropoff_state">State: </label>
+                            <select name="dropoff_state">
+                                <option value="AL">Alabama</option>
+                                <option value="AK">Alaska</option>
+                                <option value="AZ">Arizona</option>
+                                <option value="AR">Arkansas</option>
+                                <option value="CA">California</option>
+                                <option value="CO">Colorado</option>
+                                <option value="CT">Connecticut</option>
+                                <option value="DE">Delaware</option>
+                                <option value="DC">District Of Columbia</option>
+                                <option value="FL">Florida</option>
+                                <option value="GA">Georgia</option>
+                                <option value="HI">Hawaii</option>
+                                <option value="ID">Idaho</option>
+                                <option value="IL">Illinois</option>
+                                <option value="IN">Indiana</option>
+                                <option value="IA">Iowa</option>
+                                <option value="KS">Kansas</option>
+                                <option value="KY">Kentucky</option>
+                                <option value="LA">Louisiana</option>
+                                <option value="ME">Maine</option>
+                                <option value="MD">Maryland</option>
+                                <option value="MA">Massachusetts</option>
+                                <option value="MI">Michigan</option>
+                                <option value="MN">Minnesota</option>
+                                <option value="MS">Mississippi</option>
+                                <option value="MO">Missouri</option>
+                                <option value="MT">Montana</option>
+                                <option value="NE">Nebraska</option>
+                                <option value="NV">Nevada</option>
+                                <option value="NH">New Hampshire</option>
+                                <option value="NJ">New Jersey</option>
+                                <option value="NM">New Mexico</option>
+                                <option value="NY">New York</option>
+                                <option value="NC">North Carolina</option>
+                                <option value="ND">North Dakota</option>
+                                <option value="OH">Ohio</option>
+                                <option value="OK">Oklahoma</option>
+                                <option value="OR">Oregon</option>
+                                <option value="PA">Pennsylvania</option>
+                                <option value="RI">Rhode Island</option>
+                                <option value="SC">South Carolina</option>
+                                <option value="SD">South Dakota</option>
+                                <option value="TN">Tennessee</option>
+                                <option value="TX">Texas</option>
+                                <option value="UT">Utah</option>
+                                <option value="VT">Vermont</option>
+                                <option value="VA">Virginia</option>
+                                <option value="WA">Washington</option>
+                                <option value="WV">West Virginia</option>
+                                <option value="WI">Wisconsin</option>
+                                <option value="WY">Wyoming</option>
+                            </select>
+                        </div>
+                        <div class="item">
+                            <label for="dropoff_zip">Zipcode: </label>
+                            <input type="text" name="dropoff_zip"/>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+                <div class="row">
+                    <h2 class="flex-container-row">NOTES</h2>
+                    <div class="flex-container-row">
+                        <textarea name="notes"></textarea>
+                    </div>
+                    <hr>
+                </div>
+                <div class="row">
+                    <div class="push-right">
+                        <input type="submit" class="submit-button" name="sub_fillout" value="Create Job">
+                    </div>
+                </div>
+            </form>
+        {% else %}
+            <form method="post">
+                <div class="row">
+                    <hr>
+                    <div class="flex-center">
+                        <input type="file" class="" name="excel_upload">
+                    </div>
+                </div>
+            </form>
+        {% endif %}
+    </div>
+
+{% endblock %}

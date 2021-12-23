@@ -1,0 +1,37 @@
+<!-- templates/registration/login.html -->
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'login/style.css' %}">
+<div class="center-box">
+    <div class="center-main">
+        <div class="left">
+            <p class="logo-text">R&R Co.<br/></p>
+        </div>
+        <form method="POST" class="right">
+                {% csrf_token %}
+                {% if next %}
+                    <input type="hidden" name="next" value="{{ next }}">
+                {% endif %}
+                <label for="netid">Username</label>
+                <input type="text" name="username" required/>
+
+                <label for="password">Password</label>
+                <input type="password" name="password" required/>
+
+                <input type="submit" value="Login">
+            </form>
+    </div>
+{% if messages %}
+    <div class="errorbox">
+        {% for msg in messages %}
+            <p class="error-msg">{{ msg }}</p>
+        {% endfor %}
+    </div>
+{% endif %}
+</div>
+{% endblock %}
