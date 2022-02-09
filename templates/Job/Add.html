@@ -41,40 +41,64 @@
                     <div class="flex-container-row">
                         <div class="item">
                             <label for="start_date">Start Date: </label>
-                            <input type="date" name="start_date" required/>
+                            <input placeholder="yyyy-mm-dd" type="date" name="start_date"
+                                   min="1997-01-01" max="2100-12-31" required/>
                         </div>
                         <div class="item">
                             <label for="end_date">End Date: </label>
-                            <input type="date" name="end_date"/>
+                            <input placeholder="yyyy-mm-dd" type="date" name="end_date"/>
                         </div>
                         <div class="item">
                             <label for="receipt_date">Receipt Date: </label>
-                            <input type="date" name="receipt_date"/>
+                            <input placeholder="yyyy-mm-dd" type="date" name="receipt_date"/>
                         </div>
                     </div>
                     <hr>
                 </div>
                 <div class="row">
-                    <h2 class="flex-container">GENERAL</h2>
+                    <h2 class="flex-container">DASHBOARD</h2>
                     <div class="flex-container-row">
                         <div class="item">
-                            <label for="invoice">Invoice #: </label>
-                            <input type="number" name="invoice"/>
+                            <label for="company">Company: </label>
+                            <input type="text" name="company" required/>
+                        </div>
+                        <div class="item">
+                            <label for="rpm">RPM: </label>
+                            <span>$</span>
+                            <input type="number" name="rpm" required/>
                         </div>
                         <div class="item">
                             <label for="distance">Distance: </label>
-                            <input type="number" name="distance"/>
+                            <input type="number" name="distance" required/>
                             <span>mi</span>
                         </div>
+                    </div>
+                    <hr>
+                </div>
+                <div class="row">
+                    <h2 class="flex-container">TAFS</h2>
+                    <div class="flex-container-row">
                         <div class="item">
-                            <label for="revenue">Revenue: </label>
-                            <span>$</span>
-                            <input type="number" name="revenue"/>
+                            <label for="invoice">Invoice #: </label>
+                            <input type="text" name="invoice"/>
                         </div>
                         <div class="item">
-                            <label for="tax">Tax: </label>
+                            <label for="reference">Reference #: </label>
+                            <input type="text" name="reference"/>
+                        </div>
+                        <div class="item">
+                            <label for="debtor">Debtor: </label>
+                            <input type="text" name="debtor"/>
+                        </div>
+                        <div class="item">
+                            <label for="amount">Amount: </label>
                             <span>$</span>
-                            <input type="number" name="tax"/>
+                            <input type="number" name="amount" value="0.00"/>
+                        </div>
+                        <div class="item">
+                            <label for="reserves">Reserves: </label>
+                            <span>$</span>
+                            <input type="number" name="reserves" value="0.00"/>
                         </div>
                     </div>
                     <hr>
@@ -85,22 +109,22 @@
                         <div class="item">
                             <label for="hotel">Hotel Cost: </label>
                             <span>$</span>
-                            <input type="number" name="hotel"/>
+                            <input type="number" name="hotel", value="0.00"/>
                         </div>
                         <div class="item">
                             <label for="food">Food Cost: </label>
                             <span>$</span>
-                            <input type="number" name="food"/>
+                            <input type="number" name="food", value="0.00"/>
                         </div>
                         <div class="item">
                             <label for="gas">Gas Cost: </label>
                             <span>$</span>
-                            <input type="number" name="gas"/>
+                            <input type="number" name="gas", value="0.00"/>
                         </div>
                         <div class="item">
                             <label for="other">Other Expenses: </label>
                             <span>$</span>
-                            <input type="number" name="other"/>
+                            <input type="number" name="other", value="0.00"/>
                         </div>
                     </div>
                     <hr>
@@ -110,15 +134,15 @@
                     <div class="flex-container-row">
                         <div class="item">
                             <label for="start_street">Address: </label>
-                            <input type="text" for="start_street" />
+                            <input type="text" name="start_street" required/>
                         </div>
                         <div class="item">
                             <label for="start_city">City: </label>
-                            <input type="text" name="start_city"/>
+                            <input type="text" name="start_city" required/>
                         </div>
                         <div class="item">
                             <label for="start_state">State: </label>
-                            <select name="start_state">
+                            <select name="start_state" required>
                                 <option value="AL">Alabama</option>
                                 <option value="AK">Alaska</option>
                                 <option value="AZ">Arizona</option>
@@ -174,7 +198,7 @@
                         </div>
                         <div class="item">
                             <label for="start_zip">Zipcode: </label>
-                            <input type="text" name="start_zip"/>
+                            <input type="text" name="start_zip" required/>
                         </div>
                     </div>
                     <hr>
@@ -184,15 +208,15 @@
                     <div class="flex-container-row">
                         <div class="item">
                             <label for="pickup_street">Address: </label>
-                            <input type="text" for="pickup_street" />
+                            <input type="text" name="pickup_street" required/>
                         </div>
                         <div class="item">
                             <label for="pickup_city">City: </label>
-                            <input type="text" name="pickup_city"/>
+                            <input type="text" name="pickup_city" required/>
                         </div>
                         <div class="item">
                             <label for="pickup_state">State: </label>
-                            <select name="pickup_state">
+                            <select name="pickup_state" required>
                                 <option value="AL">Alabama</option>
                                 <option value="AK">Alaska</option>
                                 <option value="AZ">Arizona</option>
@@ -248,7 +272,7 @@
                         </div>
                         <div class="item">
                             <label for="pickup_zip">Zipcode: </label>
-                            <input type="text" name="pickup_zip"/>
+                            <input type="text" name="pickup_zip" required/>
                         </div>
                     </div>
                     <hr>
@@ -258,15 +282,15 @@
                     <div class="flex-container-row">
                         <div class="item">
                             <label for="dropoff_street">Address: </label>
-                            <input type="text" name="dropoff_street" />
+                            <input type="text" name="dropoff_street" required/>
                         </div>
                         <div class="item">
                             <label for="dropoff_city">City: </label>
-                            <input type="text" name="dropoff_city"/>
+                            <input type="text" name="dropoff_city" required/>
                         </div>
                         <div class="item">
                             <label for="dropoff_state">State: </label>
-                            <select name="dropoff_state">
+                            <select name="dropoff_state" required>
                                 <option value="AL">Alabama</option>
                                 <option value="AK">Alaska</option>
                                 <option value="AZ">Arizona</option>
@@ -322,7 +346,7 @@
                         </div>
                         <div class="item">
                             <label for="dropoff_zip">Zipcode: </label>
-                            <input type="text" name="dropoff_zip"/>
+                            <input type="text" name="dropoff_zip" required/>
                         </div>
                     </div>
                     <hr>
@@ -334,19 +358,23 @@
                     </div>
                     <hr>
                 </div>
-                <div class="row">
-                    <div class="push-right">
-                        <input type="submit" class="submit-button" name="sub_fillout" value="Create Job">
-                    </div>
+                <div class="push-right">
+                    <input type="submit" class="submit-button" name="fill_out_info" value="Create Job">
                 </div>
             </form>
         {% else %}
             <form method="post">
+                {% csrf_token %}
                 <div class="row">
                     <hr>
-                    <div class="flex-center">
+                    <h2 class="flex-container">UPLOAD SPREAD SHEET</h2>
+                    <div class="flex-center item">
                         <input type="file" class="" name="excel_upload">
                     </div>
+                    <hr>
+                </div>
+                <div class="push-right">
+                    <input type="submit" class="submit-button" name="excel_upload" value="Read Spreadsheet">
                 </div>
             </form>
         {% endif %}
